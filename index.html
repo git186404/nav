@@ -5,380 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WebNav Hub</title>
-  <style>
-    :root {
-      --primary-color: #ff9000;
-      --bg-color: #0d0d0d;
-      --card-bg-color: #1a1a1a;
-      --text-color: #fff;
-    }
 
-    html {
-      font-size: 16px;
-    }
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #000;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--primary-color);
-      margin: 0;
-      text-transform: uppercase;
-    }
-
-    nav {
-      background-color: var(--card-bg-color);
-      padding: 0.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    nav li {
-      margin: 0.3rem;
-    }
-
-    nav a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-      padding: 0.5rem 0.8rem;
-      border-radius: 1.25rem;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      background-color: var(--primary-color);
-      color: #000;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-
-    .category-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 2rem 0 1rem;
-      color: var(--primary-color);
-      border-left: 4px solid var(--primary-color);
-      padding-left: 0.6rem;
-      text-transform: uppercase;
-    }
-
-    .link-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .link-card {
-      background-color: var(--card-bg-color);
-      border-radius: 8px;
-      padding: 1.2rem 0.8rem;
-      text-align: center;
-      transition: transform 0.2s ease-out;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 90px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .link-card a {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
-      z-index: 12;
-      display: block;
-    }
-
-    .link-card:hover {
-      background-color: #2a2a2a;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .link-card i {
-      font-size: 1.8rem;
-      margin-bottom: 0.7rem;
-      color: var(--primary-color);
-      transition: transform 0.2s ease;
-      position: relative;
-      z-index: 11;
-    }
-
-    .link-card:hover i {
-      transform: scale(1.1);
-    }
-
-    .link-card h3 {
-      font-size: 0.9rem;
-      margin: 0;
-      color: var(--text-color);
-      line-height: 1.3;
-      font-weight: 500;
-      max-width: 100%;
-      height: 2.6em;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-      -webkit-box-orient: vertical;
-      text-overflow: ellipsis;
-      white-space: normal;
-      padding: 0 0.3rem;
-      position: relative;
-      z-index: 11;
-    }
-
-    footer {
-      background-color: #000;
-      color: #ccc;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.75rem;
-    }
-
-    footer nav {
-      margin-top: 0.6rem;
-      background-color: transparent;
-    }
-
-    footer nav a {
-      color: #ccc;
-      margin: 0 0.6rem;
-      font-size: 0.75rem;
-    }
-
-    @media (max-width: 1200px) {
-      main {
-        padding: 1rem;
-        max-width: 95%;
-      }
-
-      .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-        gap: 1rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      html {
-        font-size: 15px;
-      }
-
-      main {
-        padding: 0.8rem;
-      }
-
-      .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
-        gap: 0.8rem;
-      }
-
-      nav {
-        padding: 0.4rem;
-      }
-
-      nav a {
-        padding: 0.4rem 0.7rem;
-        font-size: 0.95rem;
-      }
-
-      .category-title {
-        font-size: 1.4rem;
-        margin: 1.8rem 0 1rem;
-      }
-
-      .link-card {
-        padding: 1rem 0.6rem;
-        min-height: 80px;
-      }
-
-      .link-card i {
-        font-size: 1.6rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .link-card h3 {
-        font-size: 0.8rem;
-        height: 2.4em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      html {
-        font-size: 14px;
-      }
-
-      main {
-        padding: 0.6rem;
-      }
-
-      .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
-        gap: 0.7rem;
-      }
-
-      header h1 {
-        font-size: 1.6rem;
-      }
-
-      nav li {
-        margin: 0.25rem;
-      }
-
-      nav a {
-        padding: 0.35rem 0.6rem;
-        font-size: 0.9rem;
-      }
-
-      .category-title {
-        font-size: 1.4rem;
-        margin: 1.8rem 0 1rem;
-      }
-
-      .link-card {
-        padding: 0.8rem 0.5rem;
-        min-height: 70px;
-      }
-
-      .link-card i {
-        font-size: 1.4rem;
-        margin-bottom: 0.4rem;
-      }
-
-      .link-card h3 {
-        font-size: 0.75rem;
-        padding: 0 0.2rem;
-        height: 2.4em;
-      }
-
-      footer {
-        padding: 0.8rem;
-      }
-
-      footer nav a {
-        margin: 0 0.4rem;
-        font-size: 0.7rem;
-      }
-    }
-
-    @media (max-width: 360px) {
-      html {
-        font-size: 13px;
-      }
-
-      .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
-        gap: 0.6rem;
-      }
-
-      header h1 {
-        font-size: 1.4rem;
-      }
-
-      .link-card {
-        padding: 0.8rem 0.5rem;
-        min-height: 70px;
-      }
-
-      .link-card i {
-        font-size: 1.3rem;
-        margin-bottom: 0.3rem;
-      }
-
-      .link-card h3 {
-        font-size: 0.7rem;
-        padding: 0 0.15rem;
-        height: 2.2em;
-      }
-    }
-  </style>
-  <!-- Upgraded to jsDelivr Font Awesome 7.1.0 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" />
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var navLinks = document.querySelectorAll("nav a");
-
-      navLinks.forEach(function (link) {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          navLinks.forEach((l) => l.classList.remove("active"));
-          this.classList.add("active");
-          var targetId = this.getAttribute("href").split("#")[1];
-          var targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-
-            var newUrl =
-              window.location.protocol +
-              "//" +
-              window.location.host +
-              window.location.pathname +
-              "#" +
-              targetId;
-            window.history.pushState({ path: newUrl }, "", newUrl);
-          }
-        });
-      });
-
-      function handleHashChange() {
-        var hash = window.location.hash;
-        if (hash) {
-          var targetElement = document.getElementById(hash.substring(1));
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-            var activeLink = document.querySelector(
-              'nav a[href="' + hash + '"]'
-            );
-            if (activeLink) {
-              navLinks.forEach((l) => l.classList.remove("active"));
-              activeLink.classList.add("active");
-            }
-          }
-        }
-      }
-
-      window.addEventListener("hashchange", handleHashChange);
-      handleHashChange(); // Call on initial load
-    });
-  </script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -426,7 +58,7 @@
       <div class="link-card">
         <a href="https://www.doubao.com/chat/" target="_blank"></a>
         <i class="fa-solid fa-paw"></i>
-        <h3>傻豆包</h3>
+        <h3>豆包</h3>
       </div>
       <div class="link-card">
         <a href="https://space.coze.cn/" target="_blank"></a>
@@ -449,9 +81,9 @@
         <h3>文心一言</h3>
       </div>
       <div class="link-card">
-        <a href="https://yuanbao.tencent.com/" target="_blank"></a>
+        <a href="https://hunyuan.tencent.com/" target="_blank"></a>
         <i class="fa-solid fa-robot"></i>
-        <h3>腾讯元宝</h3>
+        <h3>腾讯混元</h3>
       </div>
       <div class="link-card">
         <a href="https://www.minimax.io/" target="_blank"></a>
@@ -484,6 +116,11 @@
         <h3>jules.google</h3>
       </div>
       <div class="link-card">
+        <a href="https://stitch.withgoogle.com/" target="_blank"></a>
+        <i class="fa-brands fa-square-google-plus"></i>
+        <h3>stitch.withgoogle</h3>
+      </div>
+      <div class="link-card">
         <a href="https://copilot.microsoft.com/" target="_blank"></a>
         <i class="fa-brands fa-windows"></i>
         <h3>copilot</h3>
@@ -499,9 +136,9 @@
         <h3>claude</h3>
       </div>
       <div class="link-card">
-        <a href="https://chat.chutes.ai/" target="_blank"></a>
+        <a href="https://www.firecrawl.dev/" target="_blank"></a>
         <i class="fa-solid fa-robot"></i>
-        <h3>chutesai</h3>
+        <h3>firecrawl</h3>
       </div>
       <div class="link-card">
         <a href="https://mistral.ai/" target="_blank"></a>
@@ -519,9 +156,9 @@
         <h3>medscape</h3>
       </div>
       <div class="link-card">
-        <a href="https://heck.ai/" target="_blank"></a>
+        <a href="https://ollama.com/" target="_blank"></a>
         <i class="fa-brands fa-rocketchat"></i>
-        <h3>heck.ai</h3>
+        <h3>ollama</h3>
       </div>
       <div class="link-card">
         <a href="https://www.wenxiaobai.com/" target="_blank"></a>
@@ -564,9 +201,9 @@
         <h3>pce计算</h3>
       </div>
       <div class="link-card">
-        <a href="https://t3.chat/" target="_blank"></a>
-        <i class="fa-brands fa-rocketchat"></i>
-        <h3>t3.chat</h3>
+        <a href="https://docs.letta.com/" target="_blank"></a>
+        <i class="fa-solid fa-code"></i>
+        <h3>letta-code</h3>
       </div>
       <div class="link-card">
         <a href="https://v0.dev/" target="_blank"></a>
@@ -638,12 +275,10 @@
         <i class="fa-solid fa-bolt"></i>
         <h3>readdy</h3>
       </div>
-      </div>
       <div class="link-card">
         <a href="https://youmind.com/" target="_blank"></a>
         <i class="fa-solid fa-camera"></i>
         <h3>youmind</h3>
-      </div>
       </div>
       <div class="link-card">
         <a href="https://www.lovart.ai/zh/home" target="_blank"></a>
@@ -933,7 +568,6 @@
         <i class="fa-solid fa-arrows-rotate"></i>
         <h3>DNS查找nslookup</h3>
       </div>
-
       <div class="link-card">
         <a href="https://ping0.cc/" target="_blank"></a>
         <i class="fa-solid fa-fingerprint"></i>
@@ -1035,9 +669,9 @@
         <h3>picwish</h3>
       </div>
       <div class="link-card">
-        <a href="https://zenvideo.qq.com/" target="_blank"></a>
-        <i class="fa-solid fa-video"></i>
-        <h3>腾讯智影</h3>
+        <a href="https://indevs.in/" target="_blank"></a>
+        <i class="fa-solid fa-landmark-dome"></i>
+        <h3>免费域名indevs.in</h3>
       </div>
       <div class="link-card">
         <a href="https://www.hidoha.net/" target="_blank"></a>
@@ -1085,9 +719,9 @@
         <h3>lovable网站生成</h3>
       </div>
       <div class="link-card">
-        <a href="https://www.netlib.re/" target="_blank"></a>
+        <a href="https://ndjp.net/" target="_blank"></a>
         <i class="fa-solid fa-globe"></i>
-        <h3>netlib免费域名</h3>
+        <h3>ndjp免费域名</h3>
       </div>
       <div class="link-card">
         <a href="https://www.dynu.com/" target="_blank"></a>
@@ -1123,6 +757,11 @@
         <a href="https://claw.cloud/" target="_blank"></a>
         <i class="fa-solid fa-cloud"></i>
         <h3>claw容器</h3>
+      </div>
+      <div class="link-card">
+        <a href="https://galaxycloud.app/" target="_blank"></a>
+        <i class="fa-solid fa-cloud"></i>
+        <h3>galaxycloud容器</h3>
       </div>
       <div class="link-card">
         <a href="https://www.subeasy.ai/zh-CN" target="_blank"></a>
@@ -1277,9 +916,9 @@
         <h3>QQ邮箱</h3>
       </div>
       <div class="link-card">
-        <a href="https://librem.one/" target="_blank"></a>
+        <a href="https://em.bjedu.tech/" target="_blank"></a>
         <i class="fa-solid fa-at"></i>
-        <h3>librem邮箱</h3>
+        <h3>Cloudflare临时邮件</h3>
       </div>
       <div class="link-card">
         <a href="https://edumail.su/" target="_blank"></a>
@@ -1296,7 +935,9 @@
       <a href="#">联系我们</a>
     </nav>
   </footer>
-</body>
 
+  <!-- Custom JavaScript -->
+  <script src="js/main.js"></script>
+</body>
 
 </html>

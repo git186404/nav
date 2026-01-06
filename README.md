@@ -78,6 +78,10 @@ git push -u origin main
 ```
 meituan/
 ├── index.html          # 主页面文件
+├── css/
+│   └── style.css     # 样式文件（乌克兰主题）
+├── js/
+│   └── main.js       # JavaScript交互逻辑
 └── README.md          # 项目说明文档
 ```
 
@@ -134,7 +138,7 @@ meituan/
 
 ### 修改配色
 
-在 `<style>` 标签的 `:root` 中修改CSS变量：
+在 `css/style.css` 文件的 `:root` 中修改CSS变量：
 
 ```css
 :root {
