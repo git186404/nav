@@ -7,10 +7,19 @@
   <title>WebNav Hub</title>
   <style>
     :root {
-      --primary-color: #ff9000;
-      --bg-color: #0d0d0d;
-      --card-bg-color: #1a1a1a;
-      --text-color: #fff;
+      /* Ukraine Flag Colors */
+      --ukraine-blue: #0057B7;
+      --ukraine-yellow: #FFDD00;
+      --ukraine-dark-blue: #004696;
+      --ukraine-light-yellow: #FFE800;
+
+      /* Theme Colors */
+      --primary-color: var(--ukraine-yellow);
+      --secondary-color: var(--ukraine-blue);
+      --bg-color: var(--ukraine-blue);
+      --card-bg-color: var(--ukraine-dark-blue);
+      --text-color: #ffffff;
+      --nav-bg-color: var(--ukraine-dark-blue);
     }
 
     html {
@@ -18,7 +27,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: var(--bg-color);
@@ -27,9 +36,10 @@
     }
 
     header {
-      background-color: #000;
+      background-color: var(--nav-bg-color);
       padding: 1rem;
       text-align: center;
+      border-bottom: 3px solid var(--primary-color);
     }
 
     header h1 {
@@ -38,14 +48,16 @@
       color: var(--primary-color);
       margin: 0;
       text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     nav {
-      background-color: var(--card-bg-color);
+      background-color: var(--nav-bg-color);
       padding: 0.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 2px solid var(--ukraine-yellow);
     }
 
     nav ul {
@@ -74,7 +86,7 @@
     nav a:hover,
     nav a.active {
       background-color: var(--primary-color);
-      color: #000;
+      color: var(--secondary-color);
     }
 
     main {
@@ -91,6 +103,7 @@
       border-left: 4px solid var(--primary-color);
       padding-left: 0.6rem;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .link-grid {
@@ -102,10 +115,10 @@
 
     .link-card {
       background-color: var(--card-bg-color);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 1.2rem 0.8rem;
       text-align: center;
-      transition: transform 0.2s ease-out;
+      transition: transform 0.2s ease-out, background-color 0.3s ease;
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -114,6 +127,7 @@
       min-height: 90px;
       position: relative;
       overflow: hidden;
+      border: 2px solid transparent;
     }
 
     .link-card a {
@@ -128,22 +142,24 @@
     }
 
     .link-card:hover {
-      background-color: #2a2a2a;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      background-color: var(--primary-color);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      border-color: var(--ukraine-light-yellow);
     }
 
     .link-card i {
       font-size: 1.8rem;
       margin-bottom: 0.7rem;
       color: var(--primary-color);
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, color 0.3s ease;
       position: relative;
       z-index: 11;
     }
 
     .link-card:hover i {
-      transform: scale(1.1);
+      transform: scale(1.15);
+      color: var(--secondary-color);
     }
 
     .link-card h3 {
@@ -164,14 +180,20 @@
       padding: 0 0.3rem;
       position: relative;
       z-index: 11;
+      transition: color 0.3s ease;
+    }
+
+    .link-card:hover h3 {
+      color: var(--secondary-color);
     }
 
     footer {
-      background-color: #000;
-      color: #ccc;
+      background-color: var(--nav-bg-color);
+      color: var(--primary-color);
       text-align: center;
       padding: 1rem;
       font-size: 0.75rem;
+      border-top: 2px solid var(--primary-color);
     }
 
     footer nav {
@@ -180,7 +202,7 @@
     }
 
     footer nav a {
-      color: #ccc;
+      color: var(--primary-color);
       margin: 0 0.6rem;
       font-size: 0.75rem;
     }
@@ -330,8 +352,7 @@
       }
     }
   </style>
-  <!-- Upgraded to jsDelivr Font Awesome 7.1.0 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var navLinks = document.querySelectorAll("nav a");
@@ -426,7 +447,7 @@
       <div class="link-card">
         <a href="https://www.doubao.com/chat/" target="_blank"></a>
         <i class="fa-solid fa-paw"></i>
-        <h3>傻豆包</h3>
+        <h3>豆包</h3>
       </div>
       <div class="link-card">
         <a href="https://space.coze.cn/" target="_blank"></a>
@@ -449,9 +470,9 @@
         <h3>文心一言</h3>
       </div>
       <div class="link-card">
-        <a href="https://yuanbao.tencent.com/" target="_blank"></a>
+        <a href="https://hunyuan.tencent.com/" target="_blank"></a>
         <i class="fa-solid fa-robot"></i>
-        <h3>腾讯元宝</h3>
+        <h3>腾讯混元</h3>
       </div>
       <div class="link-card">
         <a href="https://www.minimax.io/" target="_blank"></a>
@@ -484,6 +505,11 @@
         <h3>jules.google</h3>
       </div>
       <div class="link-card">
+        <a href="https://stitch.withgoogle.com/" target="_blank"></a>
+        <i class="fa-brands fa-square-google-plus"></i>
+        <h3>stitch.withgoogle</h3>
+      </div>
+      <div class="link-card">
         <a href="https://copilot.microsoft.com/" target="_blank"></a>
         <i class="fa-brands fa-windows"></i>
         <h3>copilot</h3>
@@ -499,9 +525,9 @@
         <h3>claude</h3>
       </div>
       <div class="link-card">
-        <a href="https://chat.chutes.ai/" target="_blank"></a>
+        <a href="https://www.firecrawl.dev/" target="_blank"></a>
         <i class="fa-solid fa-robot"></i>
-        <h3>chutesai</h3>
+        <h3>firecrawl</h3>
       </div>
       <div class="link-card">
         <a href="https://mistral.ai/" target="_blank"></a>
@@ -519,9 +545,9 @@
         <h3>medscape</h3>
       </div>
       <div class="link-card">
-        <a href="https://heck.ai/" target="_blank"></a>
+        <a href="https://ollama.com/" target="_blank"></a>
         <i class="fa-brands fa-rocketchat"></i>
-        <h3>heck.ai</h3>
+        <h3>ollama</h3>
       </div>
       <div class="link-card">
         <a href="https://www.wenxiaobai.com/" target="_blank"></a>
@@ -564,9 +590,9 @@
         <h3>pce计算</h3>
       </div>
       <div class="link-card">
-        <a href="https://t3.chat/" target="_blank"></a>
-        <i class="fa-brands fa-rocketchat"></i>
-        <h3>t3.chat</h3>
+        <a href="https://docs.letta.com/" target="_blank"></a>
+        <i class="fa-solid fa-code"></i>
+        <h3>letta-code</h3>
       </div>
       <div class="link-card">
         <a href="https://v0.dev/" target="_blank"></a>
@@ -638,12 +664,10 @@
         <i class="fa-solid fa-bolt"></i>
         <h3>readdy</h3>
       </div>
-      </div>
       <div class="link-card">
         <a href="https://youmind.com/" target="_blank"></a>
         <i class="fa-solid fa-camera"></i>
         <h3>youmind</h3>
-      </div>
       </div>
       <div class="link-card">
         <a href="https://www.lovart.ai/zh/home" target="_blank"></a>
@@ -924,7 +948,7 @@
         <h3>免费域名dnsexit</h3>
       </div>
       <div class="link-card">
-        <a href="https://www.gname.vip/" target="_blank"></a>
+        <a href="https://www.gname.com/" target="_blank"></a>
         <i class="fa-solid fa-users"></i>
         <h3>免费域名gname</h3>
       </div>
@@ -1035,9 +1059,9 @@
         <h3>picwish</h3>
       </div>
       <div class="link-card">
-        <a href="https://zenvideo.qq.com/" target="_blank"></a>
-        <i class="fa-solid fa-video"></i>
-        <h3>腾讯智影</h3>
+        <a href="https://indevs.in/" target="_blank"></a>
+        <i class="fa-solid fa-landmark-dome"></i>
+        <h3>免费域名indevs.in</h3>
       </div>
       <div class="link-card">
         <a href="https://www.hidoha.net/" target="_blank"></a>
@@ -1085,9 +1109,9 @@
         <h3>lovable网站生成</h3>
       </div>
       <div class="link-card">
-        <a href="https://www.netlib.re/" target="_blank"></a>
+        <a href="https://ndjp.net/" target="_blank"></a>
         <i class="fa-solid fa-globe"></i>
-        <h3>netlib免费域名</h3>
+        <h3>ndjp免费域名</h3>
       </div>
       <div class="link-card">
         <a href="https://www.dynu.com/" target="_blank"></a>
@@ -1123,6 +1147,16 @@
         <a href="https://claw.cloud/" target="_blank"></a>
         <i class="fa-solid fa-cloud"></i>
         <h3>claw容器</h3>
+      </div>
+      <div class="link-card">
+        <a href="https://zoneabc.net/" target="_blank"></a>
+        <i class="fa-solid fa-cloud"></i>
+        <h3>免费域名zoneabc</h3>
+      </div>
+      <div class="link-card">
+        <a href="https://nic.gv.uy/" target="_blank"></a>
+        <i class="fa-solid fa-cloud"></i>
+        <h3>免费域名gv.uy</h3>
       </div>
       <div class="link-card">
         <a href="https://www.subeasy.ai/zh-CN" target="_blank"></a>
@@ -1277,9 +1311,9 @@
         <h3>QQ邮箱</h3>
       </div>
       <div class="link-card">
-        <a href="https://librem.one/" target="_blank"></a>
+        <a href="https://em.bjedu.tech/" target="_blank"></a>
         <i class="fa-solid fa-at"></i>
-        <h3>librem邮箱</h3>
+        <h3>Cloudflare临时邮件</h3>
       </div>
       <div class="link-card">
         <a href="https://edumail.su/" target="_blank"></a>
@@ -1297,6 +1331,5 @@
     </nav>
   </footer>
 </body>
-
 
 </html>
